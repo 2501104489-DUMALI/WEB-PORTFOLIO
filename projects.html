@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Dumali</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="bubbles">
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+</div>
+
+<nav>
+  <h1 class="logo">Dumali</h1>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="section-page">
+  <h1>My Projects</h1>
+
+  <div class="projects-grid">
+
+    <div class="project-card" onclick="openProject('Portfolio Website', 'A personal portfolio to showcase my skills and projects.')">
+      Portfolio Website
+    </div>
+    <div class="project-card" onclick="openProject('E-Commerce UI', 'An online shop interface design with smooth UX.')">
+      E-Commerce UI
+    </div>
+    <div class="project-card" onclick="openProject('Task Manager App', 'A web app to manage tasks with responsive design.')">
+      Task Manager App
+    </div>
+
+  </div>
+</section>
+
+<!-- Project Popup Modal -->
+<div id="project-popup" class="popup">
+  <div class="popup-content project-popup-content">
+    <span class="close" onclick="closeProject()">&times;</span>
+
+    <div class="project-half">
+      <div class="project-text">
+        <h2 id="project-title"></h2>
+        <p id="project-desc"></p>
+      </div>
+      <div class="project-image">
+        <label for="project-upload">+</label>
+        <input type="file" id="project-upload" accept="image/*"/>
+        <img id="project-img" src="" alt="Project Image"/>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function openProject(title, desc){
+  document.getElementById('project-title').innerText = title;
+  document.getElementById('project-desc').innerText = desc;
+  document.getElementById('project-popup').style.display = 'block';
+}
+
+function closeProject(){
+  document.getElementById('project-popup').style.display = 'none';
+}
+
+const projectUpload = document.getElementById("project-upload");
+const projectImg = document.getElementById("project-img");
+
+projectUpload.addEventListener("change", function () {
+  const file = this.files[0];
+  if(file){
+    const reader = new FileReader();
+    reader.onload = function(e){
+      projectImg.src = e.target.result;
+    }
+    reader.readAsDataURL(file);
+  }
+});
+</script>

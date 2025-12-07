@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skills | Dumali</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="bubbles">
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+</div>
+
+<nav>
+  <h1 class="logo">Dumali</h1>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="section-page">
+  <h1>My Skills</h1>
+
+  <div class="skills-grid">
+
+    <div class="skill-card" onclick="openSkill('HTML', 'I can create a well-structured webpage using HTML by organizing content into elements like headings, paragraphs, images, links, and lists.I make sure to use semantic tags to give meaning to the content, which improves accessibility and readability.')">
+      HTML
+    </div>
+    <div class="skill-card" onclick="openSkill('CSS', 'I can create stylish and modern designs using CSS by controlling colors, fonts, spacing, and layout to make web pages look clean and organized. I ensure that the pages adapt smoothly to different devices and screen sizes. CSS allows me to transform a simple HTML structure into an attractive, user-friendly, and professional-looking website.')">
+      CSS
+    </div>
+    <div class="skill-card" onclick="openSkill('JavaScript', 'I can create interactive and dynamic web pages using JavaScript. I can make websites not only visually appealing but also functional, engaging, and responsive to user actions, enhancing the overall user experience.')">
+      JavaScript
+    </div>
+    <div class="skill-card" onclick="openSkill('UI / UX', 'I can create effective UI/UX designs by focusing on both the look and the usability of a website or app. I can create designs that are engaging, user-friendly, and provide a positive experience for anyone using them.')">
+      UI / UX
+    </div>
+
+  </div>
+</section>
+
+<!-- Skill Popup Modal -->
+<div id="skill-popup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closeSkill()">&times;</span>
+    <h2 id="skill-title"></h2>
+    <p id="skill-desc"></p>
+  </div>
+</div>
+
+<script>
+function openSkill(title, desc){
+  document.getElementById('skill-title').innerText = title;
+  document.getElementById('skill-desc').innerText = desc;
+  document.getElementById('skill-popup').style.display = 'block';
+}
+
+function closeSkill(){
+  document.getElementById('skill-popup').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
